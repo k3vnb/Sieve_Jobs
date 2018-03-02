@@ -33,9 +33,9 @@ class FlashcardControl extends React.Component {
     }
     return(
       <div>
-          {currentlyVisibleContent}
-          <button onClick={this.handleFlashcardToggle}>Click here to see answers</button>
-          <button>Click here to go to next flashcard</button>
+        {currentlyVisibleContent}
+        <button onClick={this.handleFlashcardToggle}>Flip the card</button><hr/>
+        <button>Click here to go to next flashcard</button>
       </div>
     );
   }
