@@ -6,3 +6,5 @@
 
 ##### Planning for this version can be found over at:
 https://github.com/lemurriot/sieve_jobs_planning.git
+
+##### Component HotModuleReplacementPlugin![updatedComponentTreeWithState](img/component_tree_state.png?raw=true)
