@@ -4,9 +4,17 @@ function NewEntryForm(){
   return (
     <div>
       <h1>Form</h1>
+      <style jsx>{`
+          form {
+            display: flex;
+            flex-direction: column;
+          }
+          button {
+            background-color: lightblue;
+            margin: 2%;
+          }`}</style>
       <form>
-        <input
-          type='text'
+        <textarea
           id='anchor'
           placeholder='Anchor'/>
         <textarea
