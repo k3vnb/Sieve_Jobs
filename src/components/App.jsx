@@ -4,6 +4,7 @@ import Error404 from './Error404';
 import Header from './Header';
 import NewEntryForm from './NewEntryForm';
 import LandingPage from './LandingPage';
+import TutorialControl from './TutorialControl';
 
 function App(){
   return (
@@ -11,6 +12,7 @@ function App(){
       <Header />
       <Switch>
         <Route exact path='/' component={LandingPage} />
+        <Route exact path='/tutorial' component={TutorialControl} />
         <Route component={Error404} />
       </Switch>
     </div>
