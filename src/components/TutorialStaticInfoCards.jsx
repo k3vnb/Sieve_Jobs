@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function TutorialStaticInfoCards(){
   return(
@@ -10,11 +11,26 @@ function TutorialStaticInfoCards(){
             background-color: lightpink;
             margin: 1px;
             margin-top: 5vw;
+            position: relative;
           }
           .card-container {
             display: flex;
           }
+          .btn {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+          }
+          .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
       `}</style>
+      <div className="header">
+        <h2>Question Archetypes Tutorial</h2>
+        <h4>Most interview questions can be broken down into one of the following archetypes</h4>
+      </div>
       <div className="card-container">
         <div className="card">
           <h2>Your Work History</h2>
@@ -26,7 +42,7 @@ function TutorialStaticInfoCards(){
             <li>What's the biggest mistake you made in your career and what did you learn from it?</li>
             <li>Why do you have an employment gap?</li>
           </ol>
-          <button>Explore this topic!</button>
+          <Link to='/tutorial/page2'><button className="btn">Explore this topic!</button></Link>
         </div>
         <div className="card">
           <h2>Your Skills</h2>
@@ -38,7 +54,7 @@ function TutorialStaticInfoCards(){
             <li>Tell me about a problem you had in a previous job and how you solved it</li>
             <li>What issues do you forsee facing this position?</li>
           </ol>
-          <button>Explore this topic!</button>
+          <Link to='/tutorial/page2'><button className="btn">Explore this topic!</button></Link>
         </div>
         <div className="card">
           <h2>Our Company & Your Possible Fit Here</h2>
@@ -49,7 +65,7 @@ function TutorialStaticInfoCards(){
             <li>What can you tell me about our company?</li>
             <li>Why should we hire you?</li>
           </ol>
-          <button>Explore this topic!</button>
+          <Link to='/tutorial/page2'><button className="btn">Explore this topic!</button></Link>
         </div>
       </div>
     </div>

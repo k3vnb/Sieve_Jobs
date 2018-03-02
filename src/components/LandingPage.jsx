@@ -18,8 +18,8 @@ function LandingPage(){
         .container {
           display: flex;
           margin: 5vw;
-        }`
-      }</style>
+        }      
+      `}</style>
       <div className="container">
         <Link to="/flashcards"><div className="go-to-divs">Go to Flashcards</div></Link>
         <Link to="/tutorial"><div className="go-to-divs">Go to Tutorial</div></Link>
