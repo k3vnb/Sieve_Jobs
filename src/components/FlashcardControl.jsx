@@ -1,19 +1,44 @@
 import React from 'react';
 
-function FlashcardControl(){
-  return(
-    <div>
-      <div>
+class FlashcardControl extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      answersVisibleOnPage: false
+    };
+    this.handleFlashcardToggle = this.handleFlashcardToggle.bind(this);
+  }
+
+  handleFlashcardToggle(){
+    if (this.state.answersVisibleOnPage){
+      this.setState({answersVisibleOnPage: false})
+    } else {
+      this.setState({answersVisibleOnPage: true})
+    }
+    console.log('click');
+  }
+  render() {
+    let currentlyVisibleContent = null;
+    if (!this.state.answersVisibleOnPage) {
+      currentlyVisibleContent = <div>
         <h1>Topic (Flashcard Frontside)</h1>
       </div>
-      <div>
-        <h4>Flashcard back side (will re-render static card info & user input info)</h4>
+    } else {
+      currentlyVisibleContent = <div>
+        <h1>Topic (Flashcard Frontside)</h1>
+          <div>
+            <h4>Flashcard back side (will re-render static card info & user input info)</h4>
+          </div>
       </div>
+    }
+    return(
       <div>
-        <button>Click here to go to next flashcard</button>
+          {currentlyVisibleContent}
+          <button onClick={this.handleFlashcardToggle}>Click here to see answers</button>
+          <button>Click here to go to next flashcard</button>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 
