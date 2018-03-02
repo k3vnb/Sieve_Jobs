@@ -6,6 +6,7 @@ import NewEntryForm from './NewEntryForm';
 import LandingPage from './LandingPage';
 import TutorialStaticInfoCards from './TutorialStaticInfoCards';
 import TutorialControl from './TutorialControl';
+import FlashcardControl from './FlashcardControl';
 
 function App(){
   return (
@@ -15,6 +16,7 @@ function App(){
         <Route exact path='/' component={LandingPage} />
         <Route exact path='/tutorial' component={TutorialStaticInfoCards} />
         <Route exact path='/tutorial/page2' component={TutorialControl} />
+        <Route exact path='/flashcards' component={FlashcardControl} />
         <Route component={Error404} />
       </Switch>
     </div>
