@@ -7,7 +7,7 @@
 ##### Planning for this version can be found over at:
 https://github.com/lemurriot/sieve_jobs_planning.git
 
-##### Component HotModuleReplacementPlugin![updatedComponentTreeWithState](img/component_tree_state.png?raw=true)
+##### Component [updatedComponentTreeWithState](img/component_tree_state.png?raw=true)
 
 #### On Lifting state
 At present I have local state only in the Flashcard Control to toggle between views of a front and backside of a flashcard.  I could break the front & backsides into their own separate components, but I am not sure if it will be advantageous in the end. Both will render, ultimately, based on information passed down to the component via props, and they will be the same except the backside will render more props.
@@ -16,16 +16,16 @@ As noted in the previous planning session, Application state will be lifted up t
 
 1: {
 
-Meta-Topic:  ‘Your Experience History’,
+  Meta-Topic:  ‘Your Experience History’,
 
-Meta-Answer: 'What you did to prepare for this job and what you'll do once you're hired."
+  Meta-Answer: 'What you did to prepare for this job and what you'll do once you're hired."
 
-Example-Questions: [‘Tell Me About Yourself…’, ‘Tell me about your work history’, ‘What career accomplishments are you most proud of?’, ‘What’s the biggest mistake you made in your career and what did you do to learn from it?’],
+  Example-Questions: [‘Tell Me About Yourself…’, ‘Tell me about your work history’, ‘What career accomplishments are you most proud of?’, ‘What’s the biggest mistake you made in your career and what did you do to learn from it?’],
 
-Recommended-Breakdown: [‘anchor’, ‘goal’, ‘obstacle’, ‘decision’, ‘result’],
+  Recommended-Breakdown: [‘anchor’, ‘goal’, ‘obstacle’, ‘decision’, ‘result’],
 
-User-Input-Example: [null, null, null, null, null]
-},
+  User-Input-Example: [null, null, null, null, null]
+  },
 2: {
 
   Meta-Topic:  ‘Your Skills’,
@@ -48,6 +48,7 @@ User-Input-Example: [null, null, null, null, null]
   Recommended-Breakdown: ['name of the company', ‘list 3 things that excite you about this company’, 'what skills of yours align with the role', 'what are your career goals', ],
 
   User-Input-Example: [null, null, null, null, null]
+
 }
 
 At this time I have a partial view of how state and props will be passed down, for example:
@@ -64,3 +65,5 @@ I think I would like to find a way to bind an answer or a set of answers more sp
  ...
 
  The problem that I'm parsing in my head at the moment is that some of the questions extend well into each other such that one answer can easily apply to both or all. However, some questions, although similar in their angle, will require very different answers, and so while I can push ahead with a shoe-horn version that automates easily but can leave the user a bit confused, I would like to try to build out a more robust version of data-handling that meets both the needs of automation and feels fluid and natural.
+
+ Previously I imagined the meta-topic as being the main anchor for arranging renderings, but a newer model for the more dynamic aspects of state would be to let the example-questions themselves anchor the more dynamic renderings.
