@@ -7,7 +7,7 @@
 ##### Planning for this version can be found over at:
 https://github.com/lemurriot/sieve_jobs_planning.git
 
-##### Component [updatedComponentTreeWithState](img/component_tree_state.png?raw=true)
+##### Component ![updatedComponentTreeWithState](img/component_tree_state.png?raw=true)
 
 #### On Lifting state
 At present I have local state only in the Flashcard Control to toggle between views of a front and backside of a flashcard.  I could break the front & backsides into their own separate components, but I am not sure if it will be advantageous in the end. Both will render, ultimately, based on information passed down to the component via props, and they will be the same except the backside will render more props.

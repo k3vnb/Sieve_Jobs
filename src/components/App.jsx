@@ -7,20 +7,32 @@ import LandingPage from './LandingPage';
 import TutorialStaticInfoCards from './TutorialStaticInfoCards';
 import TutorialControl from './TutorialControl';
 import FlashcardControl from './FlashcardControl';
+import Footer from './Footer';
 
-function App(){
-  return (
-    <div>
-      <Header />
-      <Switch>
-        <Route exact path='/' component={LandingPage} />
-        <Route exact path='/tutorial' component={TutorialStaticInfoCards} />
-        <Route exact path='/tutorial/page2' component={TutorialControl} />
-        <Route exact path='/flashcards' component={FlashcardControl} />
-        <Route component={Error404} />
-      </Switch>
-    </div>
-  );
+
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+
+    }
+  }
+
+  render(){
+    return (
+      <div>
+        <Header />
+        <Switch>
+          <Route exact path='/' component={LandingPage} />
+          <Route exact path='/tutorial' component={TutorialStaticInfoCards} />
+          <Route exact path='/tutorial/page2' component={TutorialControl} />
+          <Route exact path='/flashcards' component={FlashcardControl} />
+          <Route component={Error404} />
+        </Switch>
+        <Footer/>
+      </div>
+    );  
+  }
 }
 
 
