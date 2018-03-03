@@ -14,7 +14,38 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-
+      questionList: {
+        '1': {
+          a: {
+            question: 'Tell me about yourself',
+            answer: null,
+          },
+          b: {
+            question: 'Tell about a time...',
+            answer: null
+          }
+        },
+        '2': {
+          a: {
+            question: 'What is your biggest weakness?',
+            answer: null
+          },
+          b: {
+            question: 'Tell me about a problem you had at a previous job and how you solved it',
+            answer: null
+          }
+        },
+        '3': {
+          a: {
+            question: 'How did you find out about our company?',
+            answer: null
+          },
+          b: {
+            question: 'Why should we hire you?',
+            answer: null
+          }
+        }
+      }
     }
   }
 
@@ -25,13 +56,13 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/tutorial' component={TutorialStaticInfoCards} />
-          <Route exact path='/tutorial/page2' component={TutorialControl} />
-          <Route exact path='/flashcards' component={FlashcardControl} />
+          <Route path='/tutorial/page2' component={TutorialControl} />
+          <Route path='/flashcards' render={()=><FlashcardControl questionList={this.state.questionList} />} />
           <Route component={Error404} />
         </Switch>
         <Footer/>
       </div>
-    );  
+    );
   }
 }
 

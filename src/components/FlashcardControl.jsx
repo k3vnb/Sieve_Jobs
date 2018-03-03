@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class FlashcardControl extends React.Component {
   constructor(props) {
@@ -15,9 +16,8 @@ class FlashcardControl extends React.Component {
     } else {
       this.setState({answersVisibleOnPage: true})
     }
-    console.log('click');
   }
-  render() {
+  render(props) {
     let currentlyVisibleContent = null;
     if (!this.state.answersVisibleOnPage) {
       currentlyVisibleContent = <div>
@@ -25,7 +25,7 @@ class FlashcardControl extends React.Component {
       </div>
     } else {
       currentlyVisibleContent = <div>
-        <h1>Topic (Flashcard Frontside)</h1>
+        <h1>{props.questionList[0][0][0]}</h1>
           <div>
             <h4>Flashcard back side (will re-render static card info & user input info)</h4>
           </div>
@@ -41,6 +41,9 @@ class FlashcardControl extends React.Component {
   }
 }
 
+FlashcardControl.propTypes = {
+  questionList: PropTypes.object
+}
 
 export default FlashcardControl;
 
