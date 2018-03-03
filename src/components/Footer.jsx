@@ -9,7 +9,7 @@ const footer = {
   marginTop: '5vw',
   width: '100vw',
   backgroundColor: '#ffffff52'
-}
+};
 function Footer(){
   return (
     <div style={footer}><style jsx>{`
@@ -18,7 +18,7 @@ function Footer(){
         }`}</style>
       <img src={logoface} alt='logo' />
     </div>
-  )
+  );
 }
 
 export default Footer;

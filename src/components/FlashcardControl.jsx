@@ -1,4 +1,6 @@
 import React from 'react';
+import FlashcardFront from './FlashcardFront';
+import FlashcardBack from './FlashcardBack';
 import PropTypes from 'prop-types';
 
 class FlashcardControl extends React.Component {
@@ -12,7 +14,7 @@ class FlashcardControl extends React.Component {
 
   handleFlashcardToggle(){
     if (this.state.answersVisibleOnPage){
-      this.setState({answersVisibleOnPage: false})
+      this.setState({answersVisibleOnPage: false});
     } else {
       this.setState({answersVisibleOnPage: true})
     }
@@ -20,16 +22,10 @@ class FlashcardControl extends React.Component {
   render(props) {
     let currentlyVisibleContent = null;
     if (!this.state.answersVisibleOnPage) {
-      currentlyVisibleContent = <div>
-        <h1>Topic (Flashcard Frontside)</h1>
-      </div>
+      currentlyVisibleContent = <FlashcardFront/>
     } else {
-      currentlyVisibleContent = <div>
-        <h1>{props.questionList[0][0][0]}</h1>
-          <div>
-            <h4>Flashcard back side (will re-render static card info & user input info)</h4>
-          </div>
-      </div>
+      currentlyVisibleContent = 
+        <FlashcardBack />
     }
     return(
       <div>
@@ -43,7 +39,7 @@ class FlashcardControl extends React.Component {
 
 FlashcardControl.propTypes = {
   questionList: PropTypes.object
-}
+};
 
 export default FlashcardControl;
 
