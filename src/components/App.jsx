@@ -18,7 +18,7 @@ class App extends React.Component {
         '1': {
           a: {
             question: 'Tell me about yourself',
-            answer: null,
+            answer: 'I am a student of web development, looking to break into the web development industry.',
           },
           b: {
             question: 'Tell about a time...',

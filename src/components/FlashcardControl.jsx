@@ -19,16 +19,17 @@ class FlashcardControl extends React.Component {
       this.setState({answersVisibleOnPage: true})
     }
   }
-  render(props) {
+  render() {
     let currentlyVisibleContent = null;
     if (!this.state.answersVisibleOnPage) {
-      currentlyVisibleContent = <FlashcardFront/>
+      currentlyVisibleContent = null;
     } else {
-      currentlyVisibleContent = 
-        <FlashcardBack />
+      currentlyVisibleContent = <h5>{this.props.questionList[1].a.answer}</h5>
+
     }
     return(
       <div>
+        <h4>{this.props.questionList[1].a.question}</h4>
         {currentlyVisibleContent}
         <button onClick={this.handleFlashcardToggle}>Flip the card</button><hr/>
         <button>Click here to go to next flashcard</button>
@@ -36,6 +37,7 @@ class FlashcardControl extends React.Component {
     );
   }
 }
+
 
 FlashcardControl.propTypes = {
   questionList: PropTypes.object
