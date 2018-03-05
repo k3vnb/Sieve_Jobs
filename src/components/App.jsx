@@ -22,27 +22,27 @@ class App extends React.Component {
           },
           b: {
             question: 'Tell about a time...',
-            answer: null
+            answer: "Once upon a time..."
           }
         },
         '2': {
           a: {
             question: 'What is your biggest weakness?',
-            answer: null
+            answer: "My biggest weakness is..."
           },
           b: {
             question: 'Tell me about a problem you had at a previous job and how you solved it',
-            answer: null
+            answer: "When I was at ..."
           }
         },
         '3': {
           a: {
             question: 'How did you find out about our company?',
-            answer: null
+            answer: "I heard about you through..."
           },
           b: {
             question: 'Why should we hire you?',
-            answer: null
+            answer: "I am a strong candidate because..."
           }
         }
       }

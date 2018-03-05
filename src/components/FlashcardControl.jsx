@@ -7,9 +7,11 @@ class FlashcardControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      answersVisibleOnPage: false
+      answersVisibleOnPage: false,
+      randomCard: Math.floor((Math.random() * 3) + 1)
     };
     this.handleFlashcardToggle = this.handleFlashcardToggle.bind(this);
+    this.handleNewFlashcard = this.handleNewFlashcard.bind(this);
   }
 
   handleFlashcardToggle(){
@@ -19,20 +21,27 @@ class FlashcardControl extends React.Component {
       this.setState({answersVisibleOnPage: true})
     }
   }
+
+  handleNewFlashcard(){
+    let x = Math.floor((Math.random() * 3) + 1);
+    this.setState({randomCard: x})
+  }
+
   render() {
+    console.log(this.state.randomCard);
     let currentlyVisibleContent = null;
     if (!this.state.answersVisibleOnPage) {
       currentlyVisibleContent = null;
     } else {
-      currentlyVisibleContent = <h5>{this.props.questionList[1].a.answer}</h5>
+      currentlyVisibleContent = <h5>{this.props.questionList[this.state.randomCard].a.answer}</h5>
 
     }
     return(
       <div>
-        <h4>{this.props.questionList[1].a.question}</h4>
+        <h4>{this.props.questionList[this.state.randomCard].a.question}</h4>
         {currentlyVisibleContent}
         <button onClick={this.handleFlashcardToggle}>Flip the card</button><hr/>
-        <button>Click here to go to next flashcard</button>
+        <button onClick={this.handleNewFlashcard}>Click here to go to next flashcard</button>
       </div>
     );
   }
