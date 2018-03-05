@@ -45,6 +45,20 @@ class App extends React.Component {
           answer: "When I was at ...",
           type: 'b'
         }
+      },
+      infoCard: {
+        '1': {
+          title: 'Your Work History',
+          questionSet: 'a, b, c, d'
+        },
+        '2': {
+          title: 'Your Skills',
+          questionSet: 'x, y, z'
+        },
+        '3': {
+          title: 'Our Company & Your Fit',
+          questionSet: 'apple, banana, orange'
+        }
       }
     }
   }
@@ -57,7 +71,8 @@ class App extends React.Component {
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/tutorial' component={TutorialStaticInfoCards} />
           <Route path='/tutorial/page2' component={TutorialControl} />
-          <Route path='/flashcards' render={()=><FlashcardControl questionList={this.state.questionList} />} />
+          <Route path='/flashcards' render={()=><FlashcardControl questionList={this.state.questionList}
+          infoCard={this.state.infoCard} />} />
           <Route component={Error404} />
         </Switch>
         <Footer/>

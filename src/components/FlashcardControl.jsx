@@ -38,13 +38,24 @@ class FlashcardControl extends React.Component {
       position: 'relative'
     }
     console.log(this.state.randomCard);
+    console.log(this.props.infoCard[1].title);
+
+    console.log(currentInfoCard);
     let currentlyVisibleContent = null;
+    let currentInfoCard = null;
     if (!this.state.answersVisibleOnPage) {
       currentlyVisibleContent = null;
     } else {
       currentlyVisibleContent = <h5>{this.props.questionList[this.state.randomCard].answer}</h5>
-
+      if (this.props.questionList[this.state.randomCard].type === 'a'){
+        currentInfoCard = this.props.infoCard[1].title;
+      } else if (this.props.questionList[this.state.randomCard].type === 'b'){
+        currentInfoCard = this.props.infoCard[2].title;
+      } else if (this.props.questionList[this.state.randomCard].type === 'c'){
+        currentInfoCard = this.props.infoCard[3].title;
+      }
     }
+
     return(
       <div>
         <div style={cardContainer} onClick={this.handleFlashcardToggle}>
@@ -58,6 +69,7 @@ class FlashcardControl extends React.Component {
               }`}</style>
           <h4>{this.props.questionList[this.state.randomCard].question}</h4>
           {currentlyVisibleContent}
+          {currentInfoCard}
           <p className="clickme">Click anywhere to flip the card</p>
         </div>
         <button onClick={this.handleNewFlashcard}>Click here to go to next flashcard</button>
