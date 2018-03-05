@@ -16,37 +16,37 @@ class App extends React.Component {
     this.state = {
       questionList: {
         '1': {
-          a: {
-            question: 'Tell me about yourself',
-            answer: 'I am a student of web development, looking to break into the web development industry.',
-          },
-          b: {
-            question: 'Tell about a time...',
-            answer: "Once upon a time..."
-          }
+          question: 'Tell me about yourself',
+          answer: 'I am a student of web development, looking to break into the web development industry.',
+          type: 'a'
         },
         '2': {
-          a: {
             question: 'What is your biggest weakness?',
-            answer: "My biggest weakness is..."
-          },
-          b: {
-            question: 'Tell me about a problem you had at a previous job and how you solved it',
-            answer: "When I was at ..."
-          }
+            answer: "My biggest weakness is...",
+            type: 'b'
         },
         '3': {
-          a: {
-            question: 'How did you find out about our company?',
-            answer: "I heard about you through..."
-          },
-          b: {
-            question: 'Why should we hire you?',
-            answer: "I am a strong candidate because..."
-          }
+          question: 'How did you find out about our company?',
+          answer: "I heard about you through...",
+          type: 'c'
+        },
+        '4': {
+          question: 'Why should we hire you?',
+          answer: "I am a strong candidate because...",
+          type: 'c'
+        },
+        '5': {
+          question: 'Tell about a time...',
+          answer: "Once upon a time...",
+          type: 'a'
+        },
+        '6': {
+          question: 'Tell me about a problem you had at a previous job and how you solved it',
+          answer: "When I was at ...",
+          type: 'b'
         }
       }
-    };
+    }
   }
 
   render(){
