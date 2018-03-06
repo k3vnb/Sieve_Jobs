@@ -67,14 +67,15 @@ class App extends React.Component {
   }
 
   handleAddingNewAnswerToQuestionList(newAnswer){
-    let newQuestionList = Object.assign({}, this.state.questionList['1'], {answer: newAnswer});
-    console.log("we up here");
-    console.log(newQuestionList);
+    let newQuestionList = Object.assign({}, this.state.questionList);
+    newQuestionList['1'].answer = newAnswer;
+    this.setState({ questionList: newQuestionList});
 
-    // this.setState({questionList['1'].answer: newQuestionList});
+    console.log("we up here");
   }
 
   render(){
+    console.log(this.state)
     return (
       <div>
         <Header />
