@@ -7,6 +7,7 @@ import LandingPage from './LandingPage';
 import TutorialStaticInfoCards from './TutorialStaticInfoCards';
 import TutorialControl from './TutorialControl';
 import FlashcardControl from './FlashcardControl';
+import EditForm from './EditForm';
 import Footer from './Footer';
 
 
@@ -61,6 +62,13 @@ class App extends React.Component {
         }
       }
     }
+    this.handleAddingNewAnswerToQuestionList = this.handleAddingNewAnswerToQuestionList.bind(this);
+  }
+
+  handleAddingNewAnswerToQuestionList(newAnswer){
+    // var newQuestionList = this.state.questionList.slice();
+    // this.setState({questionList: newQuestionList})
+    console.log("we up here");
   }
 
   render(){
@@ -73,6 +81,7 @@ class App extends React.Component {
           <Route path='/tutorial/page2' component={TutorialControl} />
           <Route path='/flashcards' render={()=><FlashcardControl questionList={this.state.questionList}
           infoCard={this.state.infoCard} />} />
+        <Route path='/edit' render={()=><EditForm onNewAnswerAddition={this.handleAddingNewAnswerToQuestionList} />} />
           <Route component={Error404} />
         </Switch>
         <Footer/>

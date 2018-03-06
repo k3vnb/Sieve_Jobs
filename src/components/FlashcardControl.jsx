@@ -1,6 +1,4 @@
 import React from 'react';
-import FlashcardFront from './FlashcardFront';
-import FlashcardBack from './FlashcardBack';
 import PropTypes from 'prop-types';
 
 class FlashcardControl extends React.Component {
@@ -40,7 +38,7 @@ class FlashcardControl extends React.Component {
     console.log(this.state.randomCard);
     console.log(this.props.infoCard[1].title);
 
-    console.log(currentInfoCard);
+
     let currentlyVisibleContent = null;
     let currentInfoCard = null;
     if (!this.state.answersVisibleOnPage) {
@@ -84,7 +82,3 @@ FlashcardControl.propTypes = {
 };
 
 export default FlashcardControl;
-
-//At this point, just a functional component, it will be refactored to contain state and display flashcard components (front & backside info based on re-usable card info & user-input)
-
-//I believe I will use conditional rendering with a toggle event, if boolean value is true it will render the front of the card, if false it will render the back.
