@@ -8,6 +8,7 @@ function EditForm(props){
   let _answer = null
   function handleAddingNewAnswerToQuestionList(event){
     event.preventDefault();
+    props.onNewAnswerAddition({answer: _answer.value});
     console.log("hello");
     console.log(_answer.value);
     _answer.value = '';
@@ -20,7 +21,7 @@ function EditForm(props){
             id='question'
             placeholder='Answer.'
             ref={(textarea) => {_answer = textarea;}}/>
-          <button onClick={props.onNewAnswerAddition} type='submit'>Hello</button>
+          <button type='submit'>Hello</button>
         </form>
     </div>
   );
