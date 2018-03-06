@@ -22,28 +22,28 @@ class App extends React.Component {
           type: 'a'
         },
         '2': {
-            question: 'What is your biggest weakness?',
-            answer: "My biggest weakness is...",
-            type: 'b'
+          question: 'What is your biggest weakness?',
+          answer: 'My biggest weakness is...',
+          type: 'b'
         },
         '3': {
           question: 'How did you find out about our company?',
-          answer: "I heard about you through...",
+          answer: 'I heard about you through...',
           type: 'c'
         },
         '4': {
           question: 'Why should we hire you?',
-          answer: "I am a strong candidate because...",
+          answer: 'I am a strong candidate because...',
           type: 'c'
         },
         '5': {
           question: 'Tell about a time...',
-          answer: "Once upon a time...",
+          answer: 'Once upon a time...',
           type: 'a'
         },
         '6': {
           question: 'Tell me about a problem you had at a previous job and how you solved it',
-          answer: "When I was at ...",
+          answer: 'When I was at ...',
           type: 'b'
         }
       },
@@ -61,14 +61,14 @@ class App extends React.Component {
           questionSet: 'apple, banana, orange'
         }
       }
-    }
+    };
     this.handleAddingNewAnswerToQuestionList = this.handleAddingNewAnswerToQuestionList.bind(this);
   }
 
-  handleAddingNewAnswerToQuestionList(newAnswer){
+  handleNewAnswerToQuestionList(newAnswer){
     // var newQuestionList = this.state.questionList.slice();
     // this.setState({questionList: newQuestionList})
-    console.log("we up here");
+    console.log('we up here');
   }
 
   render(){
@@ -80,8 +80,8 @@ class App extends React.Component {
           <Route exact path='/tutorial' component={TutorialStaticInfoCards} />
           <Route path='/tutorial/page2' component={TutorialControl} />
           <Route path='/flashcards' render={()=><FlashcardControl questionList={this.state.questionList}
-          infoCard={this.state.infoCard} />} />
-        <Route path='/edit' render={()=><EditForm onNewAnswerAddition={this.handleAddingNewAnswerToQuestionList} />} />
+            infoCard={this.state.infoCard} />} />
+          <Route path='/edit' render={()=><EditForm onNewAnswerAddition={this.handleNewAnswerToQuestionList} />} />
           <Route component={Error404} />
         </Switch>
         <Footer/>

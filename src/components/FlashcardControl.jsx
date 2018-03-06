@@ -16,14 +16,14 @@ class FlashcardControl extends React.Component {
     if (this.state.answersVisibleOnPage){
       this.setState({answersVisibleOnPage: false});
     } else {
-      this.setState({answersVisibleOnPage: true})
+      this.setState({answersVisibleOnPage: true});
     }
   }
 
   handleNewFlashcard(){
     let x = Math.floor((Math.random() * 6) + 1);
     this.setState({randomCard: x});
-    this.setState({answersVisibleOnPage: false})
+    this.setState({answersVisibleOnPage: false});
   }
 
   render() {
@@ -34,7 +34,7 @@ class FlashcardControl extends React.Component {
       padding: '2%',
       margin: '5%',
       position: 'relative'
-    }
+    };
     console.log(this.state.randomCard);
     console.log(this.props.infoCard[1].title);
 
@@ -44,7 +44,7 @@ class FlashcardControl extends React.Component {
     if (!this.state.answersVisibleOnPage) {
       currentlyVisibleContent = null;
     } else {
-      currentlyVisibleContent = <h5>{this.props.questionList[this.state.randomCard].answer}</h5>
+      currentlyVisibleContent = <h5>{this.props.questionList[this.state.randomCard].answer}</h5>;
       if (this.props.questionList[this.state.randomCard].type === 'a'){
         currentInfoCard = this.props.infoCard[1].title;
       } else if (this.props.questionList[this.state.randomCard].type === 'b'){
@@ -78,7 +78,8 @@ class FlashcardControl extends React.Component {
 
 
 FlashcardControl.propTypes = {
-  questionList: PropTypes.object
+  questionList: PropTypes.object,
+  infoCard: PropTypes.object
 };
 
 export default FlashcardControl;
