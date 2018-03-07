@@ -142,7 +142,8 @@ class App extends React.Component {
           infoCard={this.state.infoCard} />} />
         <Route path='/edit' render={()=><EditForm onNewAnswerAddition={this.handleAddingNewAnswerToQuestionList}
         onQuestionSelection={this.handleChangingSelectedQuestion}
-        questionList={this.state.questionList} />} />
+        questionList={this.state.questionList}
+        selectedQuestion={this.state.selectedQuestion} />} />
           <Route component={Error404} />
         </Switch>
         <Footer/>
