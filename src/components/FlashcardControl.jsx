@@ -8,8 +8,23 @@ class FlashcardControl extends React.Component {
       answersVisibleOnPage: false,
       randomCard: Math.floor((Math.random() * 14) + 1)
     };
+    this.state.fade = false;
+    this.fadingDone = this.fadingDone.bind(this)
     this.handleFlashcardToggle = this.handleFlashcardToggle.bind(this);
     this.handleNewFlashcard = this.handleNewFlashcard.bind(this);
+  }
+
+  componentDidMount () {
+    const elm = this.refs.button
+    elm.addEventListener('animationend', this.fadingDone)
+  }
+  componentWillUnmount () {
+    const elm = this.refs.button
+    elm.removeEventListener('animationend', this.fadingDone)
+  }
+  fadingDone () {
+    // will re-render component, removing the animation class
+    this.setState({fade: false})
   }
 
   handleFlashcardToggle(){
@@ -18,6 +33,7 @@ class FlashcardControl extends React.Component {
     } else {
       this.setState({answersVisibleOnPage: true});
     }
+    this.setState({fade: true})
   }
 
   handleNewFlashcard(){
@@ -27,6 +43,7 @@ class FlashcardControl extends React.Component {
   }
 
   render() {
+    const fade = this.state.fade;
     const cardContainer = {
       height: '20vh',
       border: '1px solid black',
@@ -56,7 +73,8 @@ class FlashcardControl extends React.Component {
 
     return(
       <div>
-        <div style={cardContainer} onClick={this.handleFlashcardToggle}>
+        <div style={cardContainer} ref='button' className={fade ? 'fade' : ''}
+                onClick={this.handleFlashcardToggle}>
           <style jsx>{`
               .clickme {
                 font-size: 10px;
@@ -64,6 +82,13 @@ class FlashcardControl extends React.Component {
                 bottom: 0;
                 right: 1%;
                 color: red;
+              }
+              .fade {
+                animation: fade-in-keyframes 1s;
+              }
+              @keyframes fade-in-keyframes {
+                from {opacity: 0}
+                to {opacity: 1}
               }`}</style>
           <h4>{this.props.questionList[this.state.randomCard].question}</h4>
           {currentlyVisibleContent}
@@ -83,3 +108,36 @@ FlashcardControl.propTypes = {
 };
 
 export default FlashcardControl;
+
+class ClickMe extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {}
+    this.state.fade = false
+    this.fadingDone = this.fadingDone.bind(this)
+  }
+  componentDidMount () {
+    const elm = this.refs.button
+    elm.addEventListener('animationend', this.fadingDone)
+  }
+  componentWillUnmount () {
+    const elm = this.refs.button
+    elm.removeEventListener('animationend', this.fadingDone)
+  }
+  fadingDone () {
+    // will re-render component, removing the animation class
+    this.setState({fade: false})
+  }
+  render () {
+    const fade = this.state.fade
+
+    return (
+      <button
+        ref='button'
+        onClick={() => this.setState({fade: true})}
+        className={fade ? 'fade' : ''}>
+          Click me!
+      </button>
+    )
+  }
+}
