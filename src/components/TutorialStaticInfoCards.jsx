@@ -1,7 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import StaticInfoCards from './StaticInfoCards';
 
-function TutorialStaticInfoCards(){
+function TutorialStaticInfoCards(props){
+
   return(
     <div>
       <style jsx>{`
@@ -35,14 +38,14 @@ function TutorialStaticInfoCards(){
         <div className="card">
           <h2>Your Work History</h2>
           <h3>Typical Questions:</h3>
-          <ol>
+          <ol id="aTypeList">
             <li>Tell me about yourself</li>
             <li>Tell me about your work history</li>
             <li>What career accomplishments are you most proud of?</li>
             <li>What's the biggest mistake you made in your career and what did you learn from it?</li>
             <li>Why do you have an employment gap?</li>
           </ol>
-          <Link to='/tutorial/page2'><button className="btn">Explore this topic!</button></Link>
+          <Link to='/tutorial/A'><button className="btn">Explore this topic!</button></Link>
         </div>
         <div className="card">
           <h2>Your Skills</h2>
@@ -54,7 +57,7 @@ function TutorialStaticInfoCards(){
             <li>Tell me about a problem you had in a previous job and how you solved it</li>
             <li>What issues do you forsee facing this position?</li>
           </ol>
-          <Link to='/tutorial/page2'><button className="btn">Explore this topic!</button></Link>
+          <Link to='/tutorial/B'><button className="btn">Explore this topic!</button></Link>
         </div>
         <div className="card">
           <h2>Our Company & Your Possible Fit Here</h2>
@@ -65,12 +68,16 @@ function TutorialStaticInfoCards(){
             <li>What can you tell me about our company?</li>
             <li>Why should we hire you?</li>
           </ol>
-          <Link to='/tutorial/page2'><button className="btn">Explore this topic!</button></Link>
+          <Link to='/tutorial/C'><button className="btn">Explore this topic!</button></Link>
         </div>
       </div>
     </div>
   );
 }
 
+TutorialStaticInfoCards.propTypes = {
+  questionList: PropTypes.object,
+  infoCard: PropTypes.object
+};
 
 export default TutorialStaticInfoCards;

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import QuestionList from './QuestionList';
 
 
 
@@ -15,6 +16,9 @@ function EditForm(props){
   }
   return (
     <div>
+      <h2>Choose a question to Edit</h2>
+      <QuestionList questionList={props.questionList}
+      onQuestionSelection={props.onQuestionSelection}/>
       <h1>Edit Form</h1>
         <form onSubmit={handleAddingNewAnswerToQuestionList}>
           <textarea
@@ -28,7 +32,9 @@ function EditForm(props){
 }
 
 EditForm.propTypes = {
-  onNewAnswerAddition: PropTypes.func
+  onNewAnswerAddition: PropTypes.func,
+  questionList: PropTypes.object,
+  onQuestionSelection: PropTypes.func
 };
 
 export default EditForm;

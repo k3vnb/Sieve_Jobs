@@ -6,7 +6,7 @@ class FlashcardControl extends React.Component {
     super(props);
     this.state = {
       answersVisibleOnPage: false,
-      randomCard: Math.floor((Math.random() * 6) + 1)
+      randomCard: Math.floor((Math.random() * 14) + 1)
     };
     this.handleFlashcardToggle = this.handleFlashcardToggle.bind(this);
     this.handleNewFlashcard = this.handleNewFlashcard.bind(this);
@@ -21,7 +21,7 @@ class FlashcardControl extends React.Component {
   }
 
   handleNewFlashcard(){
-    let x = Math.floor((Math.random() * 6) + 1);
+    let x = Math.floor((Math.random() * 14) + 1);
     this.setState({randomCard: x});
     this.setState({answersVisibleOnPage: false});
   }
