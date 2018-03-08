@@ -33,7 +33,7 @@ function Header() {
           }
         }`}</style>
       <div className="header">
-        <img src={logo} alt='logo'/>
+        <Link to="/"><img src={logo} alt='logo'/></Link>
       </div>
       <div className="links">
         <div><Link to="/">Home</Link></div>

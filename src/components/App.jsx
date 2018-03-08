@@ -93,15 +93,15 @@ class App extends React.Component {
       infoCard: {
         '1': {
           title: 'Your Work History',
-          questionSet: 'a, b, c, d'
+          questionSet: 'what you did to prepare for this job and what you will do once hired'
         },
         '2': {
           title: 'Your Skills',
-          questionSet: 'x, y, z'
+          questionSet: 'what skills you have and how you developed them'
         },
         '3': {
           title: 'Our Company & Your Fit',
-          questionSet: 'apple, banana, orange'
+          questionSet: 'what you will do for the company'
         }
       },
       selectedQuestion: '1'

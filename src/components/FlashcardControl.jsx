@@ -1,4 +1,5 @@
 import React from 'react';
+import skinnylogo from './../assets/logo-slim.png'
 import PropTypes from 'prop-types';
 
 
@@ -21,8 +22,6 @@ class FlashcardControl extends React.Component {
     this.refs.nextbutton.addEventListener('animationend', this.slidingDone);
   }
   componentWillUnmount () {
-
-
     this.refs.button.removeEventListener('animationend', this.animationDone);
     this.refs.nextbutton.removeEventListener('animationend', this.slidingDone);
 
@@ -69,36 +68,54 @@ class FlashcardControl extends React.Component {
       backgroundColor: '#1fb5a9',
       border: '1px solid black'
     }
-
-    console.log(this.state.randomCard);
+    const metaTopic = {
+      backgroundColor: '#ff9bd4',
+      padding: '2%',
+      paddingLeft: '4%',
+      fontFamily: 'Didact Gothic, sans-serif',
+      fontSize: '.8em',
+      marginBottom: 10
+    }
+    const yourAnswer = {
+      padding: '1%',
+      paddingRight: '4%',
+      fontFamily: 'Didact Gothic, sans-serif',
+      textAlign: 'justify'
+    }
 
 
 
     let currentlyVisibleContent = null;
     let currentInfoCard = null;
+    let logoSlim = <img src={skinnylogo} alt='logo'/>
     if (!this.state.answersVisibleOnPage) {
       currentlyVisibleContent = null;
     } else {
-      currentlyVisibleContent = <h5>{this.props.questionList[this.state.randomCard].answer}</h5>;
+      currentlyVisibleContent =
+      <div style={yourAnswer}><h3>Your Answer:</h3> <p>{this.props.questionList[this.state.randomCard].answer}</p></div> ;
       if (this.props.questionList[this.state.randomCard].type === 'a'){
-        currentInfoCard = this.props.infoCard[1].title;
+        currentInfoCard = <div><div style={metaTopic}><p>Meta-Topic: {this.props.infoCard[1].title}</p> <p>Focus on: {this.props.infoCard[1].questionSet}</p>
+      </div>{logoSlim}</div>;
       } else if (this.props.questionList[this.state.randomCard].type === 'b'){
-        currentInfoCard = this.props.infoCard[2].title;
+        currentInfoCard = <div><div style={metaTopic}><p>Meta-Topic: {this.props.infoCard[2].title}</p> <p>Focus on: {this.props.infoCard[2].questionSet}</p>
+      </div>{logoSlim}</div>;
       } else if (this.props.questionList[this.state.randomCard].type === 'c'){
-        currentInfoCard = this.props.infoCard[3].title;
+        currentInfoCard = <div><div style={metaTopic}><p>Meta-Topic: {this.props.infoCard[3].title}</p> <p>Focus on: {this.props.infoCard[3].questionSet}</p>
+        </div>{logoSlim}</div>;
       }
     }
 
     return(
       <div>
-        <link href="https://fonts.googleapis.com/css?family=Comfortaa|Permanent+Marker|Ropa+Sans|Rubik+Mono+One" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Ropa+Sans|Rubik+Mono+One" rel="stylesheet" />
         <div style={cardContainer} ref='button' className={fade ? 'fade' : ''}
         onClick={this.handleFlashcardToggle}>
           <style jsx>{`
               .clickme {
-                font-size: 10px;
+                font-size: 12px;
                 position: absolute;
-                bottom: 0;
+                font-family: 'Didact Gothic', sans-serif;
+                top: 0;
                 right: 1%;
                 color: red;
               }
@@ -108,6 +125,15 @@ class FlashcardControl extends React.Component {
                 font-weight: lighter;
                 font-size: 1.3em;
                 text-shadow: .5px .5px #027068;
+              }
+              .answerWrapper {
+                display: flex;
+              }
+              .infocard {
+                width: 30%;
+              }
+              .answer {
+                width: 69%;
               }
               .fade {
                 animation: flip .3s, small .4s, fade-in-keyframes .3s;
@@ -133,8 +159,14 @@ class FlashcardControl extends React.Component {
               }`}</style>
             <div className='cardWrapper'>
               <h4 className={slide ? 'slide' : ''}>{this.props.questionList[this.state.randomCard].question}</h4>
-              {currentlyVisibleContent}
-              {currentInfoCard}
+              <div className="answerWrapper">
+                <div className="answer">
+                  {currentlyVisibleContent}
+                </div>
+                <div className="infocard">
+                  {currentInfoCard}
+                </div>
+              </div>
               <p className="clickme">Click anywhere to flip the card</p>
             </div>
         </div>
