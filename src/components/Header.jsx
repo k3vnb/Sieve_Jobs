@@ -6,7 +6,11 @@ function Header() {
   const header = {
     display: 'flex',
     alignItems: 'center',
-    borderBottom: '1px solid black'
+    backgroundColor: 'white',
+    borderBottom: '1px solid black',
+    position: 'sticky',
+    top: '-125px',
+    zIndex: '2'
   }
   return(
     <div style={header}>
