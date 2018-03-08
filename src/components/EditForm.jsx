@@ -52,6 +52,8 @@ function EditForm(props){
           background-color: #c5e2c9;
           color: #1fb5a9;
           box-shadow: 1px 1px 1px black;
+          transform: scale(1.1);
+          cursor: pointer;
         }
           `}</style>
       <div className="container">

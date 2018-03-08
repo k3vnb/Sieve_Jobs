@@ -58,7 +58,8 @@ class FlashcardControl extends React.Component {
       border: '10px solid #2fe6d8',
       padding: '2%',
       margin: '5%',
-      position: 'relative'
+      position: 'relative',
+      boxShadow: '.5px 3px 4px #00000063'
     };
     const nextButton = {
       width: '100%',
@@ -122,7 +123,7 @@ return(
             font-family: 'Didact Gothic', sans-serif;
             top: 0;
             right: 1%;
-            color: red;
+            color: #ff3ede;
           }
           .cardWrapper h4 {
             text-align: center;
