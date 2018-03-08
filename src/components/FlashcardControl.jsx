@@ -85,27 +85,30 @@ class FlashcardControl extends React.Component {
     const page = {
       marginBottom: '80px'
     }
+    const bold = {
+      fontFamily: 'Rubik Mono One, sans-serif'
+    }
 
 
     let currentlyVisibleContent = null;
     let currentInfoCard = null;
     let logoSlim = <img src={skinnylogo} alt='logo'/>
+    let x;
+    if (this.props.questionList[this.state.randomCard].type === 'a'){
+      x = 1;
+    } else if (this.props.questionList[this.state.randomCard].type === 'b'){
+      x = 2;
+    } else {
+      x = 3;
+    }
     if (!this.state.answersVisibleOnPage) {
       currentlyVisibleContent = null;
     } else {
       currentlyVisibleContent =
       <div style={yourAnswer}><h3>Your Answer:</h3> <p>{this.props.questionList[this.state.randomCard].answer}</p></div> ;
-        if (this.props.questionList[this.state.randomCard].type === 'a'){
-          currentInfoCard = <div><div style={metaTopic}><p>Meta-Topic: {this.props.infoCard[1].title}</p> <p>Focus on: {this.props.infoCard[1].questionSet}</p>
-        </div>{logoSlim}</div>;
-      } else if (this.props.questionList[this.state.randomCard].type === 'b'){
-        currentInfoCard = <div><div style={metaTopic}><p>Meta-Topic: {this.props.infoCard[2].title}</p> <p>Focus on: {this.props.infoCard[2].questionSet}</p>
+        currentInfoCard = <div><div style={metaTopic}><p><span style={bold}>Meta-Topic:</span> {this.props.infoCard[x].title}</p> <p><span style={bold}>Focus on:</span> {this.props.infoCard[x].questionSet}</p>
       </div>{logoSlim}</div>;
-    } else if (this.props.questionList[this.state.randomCard].type === 'c'){
-      currentInfoCard = <div><div style={metaTopic}><p>Meta-Topic: {this.props.infoCard[3].title}</p> <p>Focus on: {this.props.infoCard[3].questionSet}</p>
-    </div>{logoSlim}</div>;
-  }
-}
+    }
 
 return(
   <div style={page}>

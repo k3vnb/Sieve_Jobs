@@ -25,6 +25,7 @@ function EditForm(props){
       <style jsx>{`
         .container {
           display: flex;
+          justify-content: space-around;
           width: 100%;
           font-family: 'Didact Gothic', sans-serif;
         }

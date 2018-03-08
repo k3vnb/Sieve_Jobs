@@ -10,7 +10,7 @@ const footer = {
   width: '100vw',
   backgroundColor: '#ffffff52',
   position: 'fixed',
-  bottom: '15'
+  bottom: '20'
 };
 function Footer(){
   return (

@@ -6,14 +6,19 @@ function Question(props){
     height: '90vh'
   }
   return (
-    <div onClick={() => {props.onQuestionSelection(props.questionId);}}><style jsx>{`
+    <div onClick={() => {props.onQuestionSelection(props.questionId);}}><link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet" /><style jsx>{`
         ul {
           list-style: none;
         }
+        span {
+          font-family: 'Rubik Mono One', sans-serif;
+          font-size: .8em;
+        }
       `}</style>
       <ul>
-        <li><strong>Question:</strong> {props.question}</li>
-        <li><strong>Your Current Answer:</strong> {props.answer}</li>
+        <li><span>Question:</span><br/> {props.question}</li>
+        <li><span>Your Current Answer:</span><br/> {props.answer}</li>
+        <p>-</p>
       </ul>
     </div>
   );
