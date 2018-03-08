@@ -2,15 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Question(props){
+  const wrapper = {
+    height: '90vh'
+  }
   return (
-    <div onClick={() => {props.onQuestionSelection(props.questionId);}}>
+    <div onClick={() => {props.onQuestionSelection(props.questionId);}}><style jsx>{`
+        ul {
+          list-style: none;
+        }
+      `}</style>
       <ul>
-        <li>Question: {props.question}</li>
-        <li>Your Current Answer: {props.answer}</li>
+        <li><strong>Question:</strong> {props.question}</li>
+        <li><strong>Your Current Answer:</strong> {props.answer}</li>
       </ul>
     </div>
   );
-
 }
 
 Question.propTypes = {

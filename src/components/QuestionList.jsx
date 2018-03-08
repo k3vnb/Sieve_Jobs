@@ -3,11 +3,26 @@ import PropTypes from 'prop-types';
 import Question from './Question';
 
 function QuestionList(props){
+  const wrapper = {
+    height: '65vh',
+    overflow: 'scroll',
+    backgroundColor: '#8ce28fde',
+    paddingRight: '4%'
+  }
   return(
-    <div>
+    <div style={wrapper}>
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+      <style jsx>{`
+          .questionItem {
+          font-family: 'Open Sans', sans-serif;
+          }
+        .questionItem:hover {
+          color: blue;
+          cursor: pointer;
+        }`}</style>
       {Object.keys(props.questionList).map(function(questionId) {
           let thisQuestion = props.questionList[questionId];
-          return <div><Question
+          return <div className="questionItem"><Question
             question={thisQuestion.question}
             answer={thisQuestion.answer}
             key={questionId}

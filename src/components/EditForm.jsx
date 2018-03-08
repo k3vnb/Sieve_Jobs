@@ -13,20 +13,61 @@ function EditForm(props){
     console.log(_answer.value);
     _answer.value = '';
   }
+  const questDetail = {
+    width: '200px'
+  }
   return (
     <div>
-      <h2>Choose a question to Edit</h2>
-      <QuestionList questionList={props.questionList}
-      onQuestionSelection={props.onQuestionSelection}/>
-      <h1>Edit Form</h1>
-      <QuestionDetail thisSelectedQuestion={props.questionList[props.selectedQuestion]}/>
-        <form onSubmit={handleAddingNewAnswerToQuestionList}>
-          <textarea
-            id='question'
-            placeholder='Answer.'
-            ref={(textarea) => {_answer = textarea;}}/>
-          <button type='submit'>Hello</button>
-        </form>
+      <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+      <style jsx>{`
+        .container {
+          display: flex;
+          width: 100%;
+          font-family: 'Didact Gothic', sans-serif;
+        }
+        form {
+          width: 100%;
+        }
+        textarea {
+          width: 100%;
+          height: 50vh;
+        }
+        .questions {
+          width: 35%;
+          padding-left: 5%;
+        }
+        .btn {
+          width: 100%;
+          height: 50px;
+          background-color: #1fb5a9;
+          color: white;
+          font-size: 1.1em;
+          margin-left: 1%;
+        }
+        .btn:hover {
+          background-color: #c5e2c9;
+          color: #1fb5a9;
+          box-shadow: 1px 1px 1px black;
+        }
+          `}</style>
+      <div className="container">
+        <div>
+          <h1>Edit Form</h1>
+          <QuestionDetail style={questDetail} thisSelectedQuestion={props.questionList[props.selectedQuestion]}/>
+          <form onSubmit={handleAddingNewAnswerToQuestionList}>
+            <textarea
+              id='question'
+              placeholder='Type Your Answer.'
+              ref={(textarea) => {_answer = textarea;}}/>
+            <button className="btn" type='submit'>Submit</button>
+          </form>
+        </div>
+        <div className="questions">
+          <h2>Choose a question to Edit</h2>
+          <QuestionList questionList={props.questionList}
+            onQuestionSelection={props.onQuestionSelection}/>
+        </div>
+      </div>
     </div>
   );
 }

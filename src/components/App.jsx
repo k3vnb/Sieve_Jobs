@@ -40,7 +40,7 @@ class App extends React.Component {
           type: 'c'
         },
         '5': {
-          question: 'Tell about a time you...',
+          question: 'Tell about a time you demonstrated leadership',
           answer: 'You have not answered this question',
           type: 'a'
         },
@@ -80,7 +80,7 @@ class App extends React.Component {
           type: 'b'
         },
         '13': {
-          question: 'What issues do you foresee facing in this position?',
+          question: 'Why are applying for this postion?',
           answer: 'You have not answered this question.',
           type: 'b'
         },
