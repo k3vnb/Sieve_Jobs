@@ -8,7 +8,9 @@ const footer = {
   borderTop: '1px solid black',
   marginTop: '5vw',
   width: '100vw',
-  backgroundColor: '#ffffff52'
+  backgroundColor: '#ffffff52',
+  position: 'fixed',
+  bottom: '15'
 };
 function Footer(){
   return (

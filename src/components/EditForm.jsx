@@ -16,8 +16,11 @@ function EditForm(props){
   const questDetail = {
     width: '200px'
   }
+  const page = {
+    marginBottom: 65
+  }
   return (
-    <div>
+    <div style={page}>
       <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
       <style jsx>{`
         .container {

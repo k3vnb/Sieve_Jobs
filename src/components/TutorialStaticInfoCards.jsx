@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import StaticInfoCards from './StaticInfoCards';
 
 function TutorialStaticInfoCards(props){
-
+  const page = {
+    marginBottom: 65
+  }
   return(
-    <div>
+    <div style={page}>
       <style jsx>{`
           .card {
             width: 30%;

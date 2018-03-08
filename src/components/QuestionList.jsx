@@ -6,6 +6,8 @@ function QuestionList(props){
   const wrapper = {
     height: '65vh',
     overflow: 'scroll',
+    border: '.5px solid black',
+    boxShadow: '-5px -5px 50px #2cbf077a inset',
     backgroundColor: '#8ce28fde',
     paddingRight: '4%'
   }
