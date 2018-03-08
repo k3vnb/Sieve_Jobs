@@ -9,41 +9,50 @@ class FlashcardControl extends React.Component {
       randomCard: Math.floor((Math.random() * 14) + 1)
     };
     this.state.fade = false;
-    this.fadingDone = this.fadingDone.bind(this)
+    this.state.slide = false;
+    this.animationDone = this.animationDone.bind(this);
     this.handleFlashcardToggle = this.handleFlashcardToggle.bind(this);
     this.handleNewFlashcard = this.handleNewFlashcard.bind(this);
   }
 
   componentDidMount () {
-    const elm = this.refs.button
-    elm.addEventListener('animationend', this.fadingDone)
+    this.refs.button.addEventListener('animationend', this.animationDone);
+    this.refs.nextbutton.addEventListener('animationend', this.slidingDone);
   }
   componentWillUnmount () {
-    const elm = this.refs.button
-    elm.removeEventListener('animationend', this.fadingDone)
+
+
+    this.refs.button.removeEventListener('animationend', this.animationDone);
+    this.refs.nextbutton.removeEventListener('animationend', this.slidingDone);
+
   }
-  fadingDone () {
-    // will re-render component, removing the animation class
+  animationDone() {
+    console.log("animationDOne");
     this.setState({fade: false})
+    this.setState({slide: false})
   }
 
+
   handleFlashcardToggle(){
+    this.setState({fade: true})
     if (this.state.answersVisibleOnPage){
       this.setState({answersVisibleOnPage: false});
     } else {
       this.setState({answersVisibleOnPage: true});
     }
-    this.setState({fade: true})
   }
 
   handleNewFlashcard(){
     let x = Math.floor((Math.random() * 14) + 1);
     this.setState({randomCard: x});
     this.setState({answersVisibleOnPage: false});
+    console.log(this.state.slide);
+    this.setState({slide: true});
   }
 
   render() {
     const fade = this.state.fade;
+    const slide = this.state.slide;
     const cardContainer = {
       height: '20vh',
       border: '1px solid black',
@@ -53,7 +62,7 @@ class FlashcardControl extends React.Component {
       position: 'relative'
     };
     console.log(this.state.randomCard);
-    console.log(this.props.infoCard[1].title);
+
 
 
     let currentlyVisibleContent = null;
@@ -74,7 +83,7 @@ class FlashcardControl extends React.Component {
     return(
       <div>
         <div style={cardContainer} ref='button' className={fade ? 'fade' : ''}
-                onClick={this.handleFlashcardToggle}>
+        onClick={this.handleFlashcardToggle}>
           <style jsx>{`
               .clickme {
                 font-size: 10px;
@@ -84,18 +93,35 @@ class FlashcardControl extends React.Component {
                 color: red;
               }
               .fade {
-                animation: fade-in-keyframes 1s;
+                animation: flip .3s, small .3s, fade-in-keyframes .3s;
+              }
+              .slide {
+                animation: flipY .5s;
               }
               @keyframes fade-in-keyframes {
-                from {opacity: 0}
-                to {opacity: 1}
+                from {background-color: #6cf3f3}
+                to {background-color: #7d9ca76b}
+              }
+              @keyframes flip {
+                from {transform: rotate(0deg)}
+                to {transform: rotate(360deg)}
+              }
+              @keyframes flipY {
+                from {transform: rotateY(0deg)}
+                to {transform: rotateY(720deg)}
+              }
+              @keyframes small {
+                from {box-shadow: 15px 15px 15px black}
+                to {box-shadow: .5px .5px .5px black}
               }`}</style>
-          <h4>{this.props.questionList[this.state.randomCard].question}</h4>
+            <div>
+            </div>
+          <h4 className={slide ? 'slide' : ''}>{this.props.questionList[this.state.randomCard].question}</h4>
           {currentlyVisibleContent}
           {currentInfoCard}
           <p className="clickme">Click anywhere to flip the card</p>
         </div>
-        <button onClick={this.handleNewFlashcard}>Click here to go to next flashcard</button>
+        <button onClick={this.handleNewFlashcard} ref='nextbutton'>Click here to go to next flashcard</button>
       </div>
     );
   }
@@ -108,36 +134,3 @@ FlashcardControl.propTypes = {
 };
 
 export default FlashcardControl;
-
-class ClickMe extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {}
-    this.state.fade = false
-    this.fadingDone = this.fadingDone.bind(this)
-  }
-  componentDidMount () {
-    const elm = this.refs.button
-    elm.addEventListener('animationend', this.fadingDone)
-  }
-  componentWillUnmount () {
-    const elm = this.refs.button
-    elm.removeEventListener('animationend', this.fadingDone)
-  }
-  fadingDone () {
-    // will re-render component, removing the animation class
-    this.setState({fade: false})
-  }
-  render () {
-    const fade = this.state.fade
-
-    return (
-      <button
-        ref='button'
-        onClick={() => this.setState({fade: true})}
-        className={fade ? 'fade' : ''}>
-          Click me!
-      </button>
-    )
-  }
-}
