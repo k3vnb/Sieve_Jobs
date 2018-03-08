@@ -9,52 +9,52 @@ function EditForm(props){
   function handleAddingNewAnswerToQuestionList(event){
     event.preventDefault();
     props.onNewAnswerAddition( _answer.value);
-    console.log("hello");
+    console.log('hello');
     console.log(_answer.value);
     _answer.value = '';
   }
   const questDetail = {
     width: '200px'
-  }
+  };
   const page = {
     marginBottom: 65
-  }
+  };
   return (
     <div style={page}>
       <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
       <style jsx>{`
-        .container {
-          display: flex;
-          justify-content: space-around;
-          width: 100%;
-          font-family: 'Didact Gothic', sans-serif;
-        }
-        form {
-          width: 100%;
-        }
-        textarea {
-          width: 100%;
-          height: 50vh;
-        }
-        .questions {
-          width: 35%;
-          padding-left: 5%;
-        }
-        .btn {
-          width: 100%;
-          height: 50px;
-          background-color: #1fb5a9;
-          color: white;
-          font-size: 1.1em;
-          margin-left: 1%;
-        }
-        .btn:hover {
-          background-color: #c5e2c9;
-          color: #1fb5a9;
-          box-shadow: 1px 1px 1px black;
-          transform: scale(1.1);
-          cursor: pointer;
-        }
+          .container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            font-family: 'Didact Gothic', sans-serif;
+          }
+          form {
+            width: 100%;
+          }
+          textarea {
+            width: 100%;
+            height: 50vh;
+          }
+          .questions {
+            width: 35%;
+            padding-left: 5%;
+          }
+          .btn {
+            width: 100%;
+            height: 50px;
+            background-color: #1fb5a9;
+            color: white;
+            font-size: 1.1em;
+            margin-left: 1%;
+          }
+          .btn:hover {
+            background-color: #c5e2c9;
+            color: #1fb5a9;
+            box-shadow: 1px 1px 1px black;
+            transform: scale(1.1);
+            cursor: pointer;
+          }
           `}</style>
       <div className="container">
         <div>

@@ -10,7 +10,7 @@ function QuestionList(props){
     boxShadow: '-5px -5px 50px #2cbf077a inset',
     backgroundColor: '#8ce28fde',
     paddingRight: '4%'
-  }
+  };
   return(
     <div style={wrapper}>
       <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
@@ -23,15 +23,15 @@ function QuestionList(props){
           cursor: pointer;
         }`}</style>
       {Object.keys(props.questionList).map(function(questionId) {
-          let thisQuestion = props.questionList[questionId];
-          return <div className="questionItem"><Question
-            question={thisQuestion.question}
-            answer={thisQuestion.answer}
-            key={questionId}
-            questionId={questionId}
-            onQuestionSelection={props.onQuestionSelection}
-          /></div>;
-        })}
+        let thisQuestion = props.questionList[questionId];
+        return <div className="questionItem"><Question
+          question={thisQuestion.question}
+          answer={thisQuestion.answer}
+          key={questionId}
+          questionId={questionId}
+          onQuestionSelection={props.onQuestionSelection}
+        /></div>;
+      })}
     </div>
 
   );
@@ -40,6 +40,6 @@ function QuestionList(props){
 Question.propTypes = {
   questionList: PropTypes.object,
   onQuestionSelection: PropTypes.func
-}
+};
 
 export default QuestionList;

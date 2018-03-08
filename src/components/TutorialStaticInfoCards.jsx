@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import StaticInfoCards from './StaticInfoCards';
+
 
 function TutorialStaticInfoCards(props){
   const page = {
     marginBottom: 65
-  }
+  };
   return(
     <div style={page}>
       <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Ropa+Sans|Rubik+Mono+One" rel="stylesheet" />

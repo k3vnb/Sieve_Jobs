@@ -1,5 +1,5 @@
 import React from 'react';
-import skinnylogo from './../assets/logo-slim.png'
+import skinnylogo from './../assets/logo-slim.png';
 import PropTypes from 'prop-types';
 
 
@@ -27,14 +27,14 @@ class FlashcardControl extends React.Component {
 
   }
   animationDone() {
-    console.log("animationDOne");
-    this.setState({fade: false})
-    this.setState({slide: false})
+    console.log('animationDOne');
+    this.setState({fade: false});
+    this.setState({slide: false});
   }
 
 
   handleFlashcardToggle(){
-    this.setState({fade: true})
+    this.setState({fade: true});
     if (this.state.answersVisibleOnPage){
       this.setState({answersVisibleOnPage: false});
     } else {
@@ -68,7 +68,7 @@ class FlashcardControl extends React.Component {
       fontSize: 20,
       backgroundColor: '#1fb5a9',
       border: '1px solid black'
-    }
+    };
     const metaTopic = {
       backgroundColor: '#ff9bd4',
       padding: '2%',
@@ -76,24 +76,24 @@ class FlashcardControl extends React.Component {
       fontFamily: 'Didact Gothic, sans-serif',
       fontSize: '.8em',
       marginBottom: 10
-    }
+    };
     const yourAnswer = {
       padding: '1%',
       paddingRight: '4%',
       fontFamily: 'Didact Gothic, sans-serif',
       textAlign: 'justify'
-    }
+    };
     const page = {
       marginBottom: '80px'
-    }
+    };
     const bold = {
       fontFamily: 'Rubik Mono One, sans-serif'
-    }
+    };
 
 
     let currentlyVisibleContent = null;
     let currentInfoCard = null;
-    let logoSlim = <img src={skinnylogo} alt='logo'/>
+    let logoSlim = <img src={skinnylogo} alt='logo'/>;
     let x;
     if (this.props.questionList[this.state.randomCard].type === 'a'){
       x = 1;
@@ -106,17 +106,17 @@ class FlashcardControl extends React.Component {
       currentlyVisibleContent = null;
     } else {
       currentlyVisibleContent =
-      <div style={yourAnswer}><h3>Your Answer:</h3> <p>{this.props.questionList[this.state.randomCard].answer}</p></div> ;
-        currentInfoCard = <div><div style={metaTopic}><p><span style={bold}>Meta-Topic:</span> {this.props.infoCard[x].title}</p> <p><span style={bold}>Focus on:</span> {this.props.infoCard[x].questionSet}</p>
+        <div style={yourAnswer}><h3>Your Answer:</h3> <p>{this.props.questionList[this.state.randomCard].answer}</p></div> ;
+      currentInfoCard = <div><div style={metaTopic}><p><span style={bold}>Meta-Topic:</span> {this.props.infoCard[x].title}</p> <p><span style={bold}>Focus on:</span> {this.props.infoCard[x].questionSet}</p>
       </div>{logoSlim}</div>;
     }
 
-return(
-  <div style={page}>
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Ropa+Sans|Rubik+Mono+One" rel="stylesheet" />
-    <div style={cardContainer} ref='button' className={fade ? 'fade' : ''}
-      onClick={this.handleFlashcardToggle}>
-      <style jsx>{`
+    return(
+      <div style={page}>
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Ropa+Sans|Rubik+Mono+One" rel="stylesheet" />
+        <div style={cardContainer} ref='button' className={fade ? 'fade' : ''}
+          onClick={this.handleFlashcardToggle}>
+          <style jsx>{`
           .clickme {
             font-size: 12px;
             position: absolute;

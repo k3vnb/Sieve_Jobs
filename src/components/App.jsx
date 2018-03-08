@@ -2,14 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Error404 from './Error404';
 import Header from './Header';
-import NewEntryForm from './NewEntryForm';
 import LandingPage from './LandingPage';
 import TutorialStaticInfoCards from './TutorialStaticInfoCards';
-import TutorialControl from './TutorialControl';
 import FlashcardControl from './FlashcardControl';
-import TutorialA from './TutorialA';
-import TutorialB from './TutorialB';
-import TutorialC from './TutorialC';
 import EditForm from './EditForm';
 import Footer from './Footer';
 
@@ -25,9 +20,9 @@ class App extends React.Component {
           type: 'a'
         },
         '2': {
-            question: 'What is your biggest weakness?',
-            answer: 'You have not answered this question',
-            type: 'b'
+          question: 'What is your biggest weakness?',
+          answer: 'You have not answered this question',
+          type: 'b'
         },
         '3': {
           question: 'How did you find out about our company?',
@@ -51,7 +46,7 @@ class App extends React.Component {
         },
         '7': {
           question: 'What is your biggest strength?',
-          answer: "You have not answered this question",
+          answer: 'You have not answered this question',
           type: 'b'
         },
         '8': {
@@ -105,7 +100,7 @@ class App extends React.Component {
         }
       },
       selectedQuestion: '1'
-    }
+    };
     this.handleAddingNewAnswerToQuestionList = this.handleAddingNewAnswerToQuestionList.bind(this);
     this.handleChangingSelectedQuestion = this.handleChangingSelectedQuestion.bind(this);
   }
@@ -115,35 +110,29 @@ class App extends React.Component {
     let newQuestionList = Object.assign({}, this.state.questionList);
     newQuestionList[x].answer = newAnswer;
     this.setState({ questionList: newQuestionList});
-    console.log("we up here");
+    console.log('we up here');
   }
 
   handleChangingSelectedQuestion(questionId){
     this.setState({selectedQuestion: questionId});
-    console.log("changed to", questionId)
+    console.log('changed to', questionId);
   }
 
   render(){
-    console.log(this.state)
+    console.log(this.state);
     return (
       <div>
         <Header />
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/tutorial' render={()=><TutorialStaticInfoCards questionList={this.state.questionList}
-          infoCard={this.state.infoCard} />} />
-        <Route path='/tutorial/A' render={()=><TutorialA
-            questionList={this.state.questionList}/>} />
-          <Route path='/tutorial/B' render={()=><TutorialB
-            questionList={this.state.questionList}/>} />
-          <Route path='/tutorial/C' render={()=><TutorialC
-            questionList={this.state.questionList}/>} />
+            infoCard={this.state.infoCard} />} />
           <Route path='/flashcards' render={()=><FlashcardControl questionList={this.state.questionList}
-          infoCard={this.state.infoCard} />} />
-        <Route path='/edit' render={()=><EditForm onNewAnswerAddition={this.handleAddingNewAnswerToQuestionList}
-        onQuestionSelection={this.handleChangingSelectedQuestion}
-        questionList={this.state.questionList}
-        selectedQuestion={this.state.selectedQuestion} />} />
+            infoCard={this.state.infoCard} />} />
+          <Route path='/edit' render={()=><EditForm onNewAnswerAddition={this.handleAddingNewAnswerToQuestionList}
+            onQuestionSelection={this.handleChangingSelectedQuestion}
+            questionList={this.state.questionList}
+            selectedQuestion={this.state.selectedQuestion} />} />
           <Route component={Error404} />
         </Switch>
         <Footer/>

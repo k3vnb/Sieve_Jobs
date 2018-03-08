@@ -2,10 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 function QuestionDetail(props){
   return(
-    <div><style jsx>{`
+    <div>
+      <style jsx>
+        {`
         h3 {
           width: 300px;
-        }`}</style>
+        }`}
+      </style>
       <h3>{props.thisSelectedQuestion.question}</h3>
     </div>
   );
@@ -13,7 +16,7 @@ function QuestionDetail(props){
 
 QuestionDetail.propTypes = {
   thisSelectedQuestion: PropTypes.object
-}
+};
 
 
 

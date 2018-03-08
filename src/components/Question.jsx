@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Question(props){
-  const wrapper = {
-    height: '90vh'
-  }
   return (
-    <div onClick={() => {props.onQuestionSelection(props.questionId);}}><link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet" /><style jsx>{`
+    <div onClick={() => {props.onQuestionSelection(props.questionId);}}>
+      <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet" />
+      <style jsx>{`
         ul {
           list-style: none;
         }
@@ -14,7 +13,8 @@ function Question(props){
           font-family: 'Rubik Mono One', sans-serif;
           font-size: .8em;
         }
-      `}</style>
+        `}
+      </style>
       <ul>
         <li><span>Question:</span><br/> {props.question}</li>
         <li><span>Your Current Answer:</span><br/> {props.answer}</li>
@@ -30,6 +30,6 @@ Question.propTypes = {
   type: PropTypes.string,
   questionId: PropTypes.string.isRequired,
   onQuestionSelection: PropTypes.func
-}
+};
 
 export default Question;

@@ -38,18 +38,18 @@ function LandingPage(){
           color: #1fb5a9;
         }
       `}</style>
-    <div className="landingpage">
-      <div className="intro">
-      <h2>WELCOME TO SIEVE JOBS</h2>
-      <p>Your Job Interview Preparation Assitant</p>
-      </div>
-      <div className="container">
-        <Link to="/flashcards"><div className="go-to-divs">Go to Flashcards</div></Link>
-        <Link to="/tutorial"><div className="go-to-divs">Go to Tutorial</div></Link>
-        <Link to="/edit"><div className="go-to-divs">Answer Interview Questions</div></Link>
+      <div className="landingpage">
+        <div className="intro">
+          <h2>WELCOME TO SIEVE JOBS</h2>
+          <p>Your Job Interview Preparation Assitant</p>
+        </div>
+        <div className="container">
+          <Link to="/flashcards"><div className="go-to-divs">Go to Flashcards</div></Link>
+          <Link to="/tutorial"><div className="go-to-divs">Go to Tutorial</div></Link>
+          <Link to="/edit"><div className="go-to-divs">Answer Interview Questions</div></Link>
+        </div>
       </div>
     </div>
-  </div>
   );
 }
 

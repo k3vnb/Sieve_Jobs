@@ -14,10 +14,12 @@ const footer = {
 };
 function Footer(){
   return (
-    <div style={footer}><style jsx>{`
+    <div style={footer}>
+      <style jsx>{`
         img {
           height: 50px;
-        }`}</style>
+        }`}
+      </style>
       <img src={logoface} alt='logo' />
     </div>
   );

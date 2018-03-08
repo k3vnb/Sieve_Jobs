@@ -5,13 +5,14 @@ import logo from './../assets/Sieve_Jobs.png';
 function Header() {
   const header = {
     display: 'flex',
+    width: '105%',
     alignItems: 'center',
     backgroundColor: 'white',
     borderBottom: '1px solid black',
     position: 'sticky',
     top: '-125px',
     zIndex: '2'
-  }
+  };
   return(
     <div style={header}>
       <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
@@ -41,7 +42,7 @@ function Header() {
       </div>
       <div className="links">
         <div><Link to="/">Home</Link></div>
-         <div><Link to="/flashcards">Flashcards</Link></div>  <div><Link to="/tutorial">Tutorial</Link></div>  <div><Link to="/edit">Add/Edit</Link></div>
+        <div><Link to="/flashcards">Flashcards</Link></div>  <div><Link to="/tutorial">Tutorial</Link></div>  <div><Link to="/edit">Add/Edit</Link></div>
       </div>
     </div>
   );
