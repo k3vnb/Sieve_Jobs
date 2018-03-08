@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+
 class FlashcardControl extends React.Component {
   constructor(props) {
     super(props);
@@ -54,13 +55,21 @@ class FlashcardControl extends React.Component {
     const fade = this.state.fade;
     const slide = this.state.slide;
     const cardContainer = {
-      height: '20vh',
-      border: '1px solid black',
-      backgroundColor: 'lightblue',
+      minHeight: '20vh',
+      border: '10px solid #2fe6d8',
       padding: '2%',
       margin: '5%',
       position: 'relative'
     };
+    const nextButton = {
+      width: '100%',
+      height: 50,
+      fontFamily: 'Comfortaa, cursive',
+      fontSize: 20,
+      backgroundColor: '#1fb5a9',
+      border: '1px solid black'
+    }
+
     console.log(this.state.randomCard);
 
 
@@ -82,6 +91,7 @@ class FlashcardControl extends React.Component {
 
     return(
       <div>
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa|Permanent+Marker|Ropa+Sans|Rubik+Mono+One" rel="stylesheet" />
         <div style={cardContainer} ref='button' className={fade ? 'fade' : ''}
         onClick={this.handleFlashcardToggle}>
           <style jsx>{`
@@ -92,36 +102,43 @@ class FlashcardControl extends React.Component {
                 right: 1%;
                 color: red;
               }
+              .cardWrapper h4 {
+                text-align: center;
+                font-family: 'Ropa Sans', sans-serif;
+                font-weight: lighter;
+                font-size: 1.3em;
+                text-shadow: .5px .5px #027068;
+              }
               .fade {
-                animation: flip .3s, small .3s, fade-in-keyframes .3s;
+                animation: flip .3s, small .4s, fade-in-keyframes .3s;
               }
               .slide {
-                animation: flipY .5s;
+                animation: flipY .5s ease-out;
               }
               @keyframes fade-in-keyframes {
-                from {background-color: #6cf3f3}
-                to {background-color: #7d9ca76b}
+                from {background-color: #a9dcd8}
+                to {background-color: white}
               }
               @keyframes flip {
-                from {transform: rotate(0deg)}
-                to {transform: rotate(360deg)}
+                from {transform: rotateX(0deg)}
+                to {transform: rotateX(360deg)}
               }
               @keyframes flipY {
                 from {transform: rotateY(0deg)}
-                to {transform: rotateY(720deg)}
+                to {transform: rotateY(360deg)}
               }
               @keyframes small {
-                from {box-shadow: 15px 15px 15px black}
-                to {box-shadow: .5px .5px .5px black}
+                from {box-shadow: 6px 15px 15px #000000ab}
+                to {box-shadow: 0px .5px .5px #000000ab}
               }`}</style>
-            <div>
+            <div className='cardWrapper'>
+              <h4 className={slide ? 'slide' : ''}>{this.props.questionList[this.state.randomCard].question}</h4>
+              {currentlyVisibleContent}
+              {currentInfoCard}
+              <p className="clickme">Click anywhere to flip the card</p>
             </div>
-          <h4 className={slide ? 'slide' : ''}>{this.props.questionList[this.state.randomCard].question}</h4>
-          {currentlyVisibleContent}
-          {currentInfoCard}
-          <p className="clickme">Click anywhere to flip the card</p>
         </div>
-        <button onClick={this.handleNewFlashcard} ref='nextbutton'>Click here to go to next flashcard</button>
+        <button style={nextButton} onClick={this.handleNewFlashcard} ref='nextbutton'>Click here to go to next flashcard</button>
       </div>
     );
   }

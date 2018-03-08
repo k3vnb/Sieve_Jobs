@@ -3,17 +3,30 @@ import { Link } from 'react-router-dom';
 import logo from './../assets/Sieve_Jobs.png';
 
 function Header() {
+  const header = {
+    display: 'flex',
+    alignItems: 'center',
+    borderBottom: '1px solid black'
+  }
   return(
-    <div>
-      <style jsx>{`
+    <div style={header}>
+      <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+      <style jsx global>{`
+
           h1 {
             text-align: center;
-            font-family: 'Roboto Slab', serif;
-            font-weight: 100;
             }
+          a {
+            text-decoration: none;
+          }
           .links {
+            width: 100%;
+            font-family: 'Didact Gothic', sans-serif;
+            font-weight: 100;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
+            margin-right: 4%;
           }
           .header {
             display: flex;
@@ -21,10 +34,10 @@ function Header() {
         }`}</style>
       <div className="header">
         <img src={logo} alt='logo'/>
-        <h1>SIEVE JOBS</h1>
       </div>
       <div className="links">
-        <Link to="/">Home</Link> | <Link to="/flashcards">Flashcards</Link> | <Link to="/tutorial">Tutorial</Link> | <Link to="/edit">Add/Edit</Link>
+        <div><Link to="/">Home</Link></div>
+         <div><Link to="/flashcards">Flashcards</Link></div>  <div><Link to="/tutorial">Tutorial</Link></div>  <div><Link to="/edit">Add/Edit</Link></div>
       </div>
     </div>
   );
