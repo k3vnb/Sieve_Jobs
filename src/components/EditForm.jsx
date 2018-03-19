@@ -58,7 +58,7 @@ function EditForm(props){
           `}</style>
       <div className="container">
         <div>
-          <h1>Edit Form</h1>
+          <h1>Add/Edit Form</h1>
           <QuestionDetail style={questDetail} thisSelectedQuestion={props.questionList[props.selectedQuestion]}/>
           <form onSubmit={handleAddingNewAnswerToQuestionList}>
             <textarea
