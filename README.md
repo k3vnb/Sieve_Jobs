@@ -1,14 +1,17 @@
-# SIEVE JOBS
-##### A job interview preparation app built in React.
+# _SIEVE JOBS_
+## _Epicodus Capstone Project Version 1.0_
+### A job interview preparation app built in React.
 
-## Epicodus Capstone Project Version 1.0
 #### By _**Kevin Boyle**_
-#### 3/08/18
+#### March 2018
 
 
 
 ### Description:
  Users can view job interview advice, answer questions to common job interview questions, and utilize the flashcard module for interactive practice.
+
+### Screenshot:
+![screenshot](img/screenshot.gif?raw=true)
 
 ### Set Up Instructions:
 To clone this repository, run:
