@@ -9,6 +9,8 @@
 
 ### Description:
  Users can view job interview advice, answer questions to common job interview questions, and utilize the flashcard module for interactive practice.
+ Currently deployed at https://sieve-jobs.herokuapp.com
+
 
 ### Screenshot:
 ![screenshot](img/screenshot.gif?raw=true)
@@ -23,7 +25,8 @@ To clone this repository, run:
 ##### Technologies Used:
 React
 
-##### Component Tree ![updatedComponentTreeWithState](img/sieve-jobs-component-tree.png?raw=true)
+##### Component Tree:
+![updatedComponentTreeWithState](img/sieve-jobs-component-tree.png?raw=true)
 
 
 ###### Planning for this project can be found at:
