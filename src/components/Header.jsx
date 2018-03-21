@@ -46,7 +46,7 @@ function Header() {
       </div>
       <div className="links">
         <div><Link to="/">Home</Link></div>
-        <div><Link to="/flashcards">Flashcards</Link></div>  <div><Link to="/tutorial">Tutorial</Link></div>  <div><Link to="/edit">Add/Edit</Link></div>
+        <div><Link to="/flashcards">Flashcards</Link></div>  <div><Link to="/tutorial">Tutorial</Link></div>  <div><Link to="/edit">Add/Edit Answers</Link></div>
       </div>
     </div>
   );
