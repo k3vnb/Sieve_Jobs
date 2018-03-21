@@ -85,11 +85,16 @@ class FlashcardControl extends React.Component {
     const bold = {
       fontFamily: 'Rubik Mono One, sans-serif'
     };
+    const logoImg = {
+      height: 120,
+      width: 120,
+      marginLeft: '33%'
+    }
 
 
     let currentlyVisibleContent = null;
     let currentInfoCard = null;
-    let logoSlim = <img src={skinnylogo} alt='logo'/>;
+    let logoSlim = <img style={logoImg} src={skinnylogo} alt='logo'/>;
     let x;
     if (this.props.questionList[this.state.randomCard].type === 'a'){
       x = 1;

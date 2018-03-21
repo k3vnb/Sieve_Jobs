@@ -13,6 +13,10 @@ function Header() {
     top: '-125px',
     zIndex: '2'
   };
+  const logoImg = {
+    height: 200,
+    width: 200
+  }
   return(
     <div style={header}>
       <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
@@ -38,7 +42,7 @@ function Header() {
           }
         }`}</style>
       <div className="header">
-        <Link to="/"><img src={logo} alt='logo'/></Link>
+        <Link to="/"><img style={logoImg} src={logo} alt='logo'/></Link>
       </div>
       <div className="links">
         <div><Link to="/">Home</Link></div>
