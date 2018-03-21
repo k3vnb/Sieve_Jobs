@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 function QuestionDetail(props){
   return(
     <div>
