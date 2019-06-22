@@ -33,4 +33,4 @@ React
 https://github.com/lemurriot/sieve_jobs_planning.git
 
 ##### Contact
-E-mail **Kevin Boyle** at **papershack@gmail.com** with any questions.
+E-mail **Kevin Boyle** at **boyle.kevin.michael@gmail.com** with any questions.
